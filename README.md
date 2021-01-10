@@ -1,6 +1,6 @@
-# Name
+# Spring Cloud GCP for Secret Manager
 
-Overview
+Secret Manager stores API keys, passwords, certificates, and other sensitive data.
 
 ## Description
 
