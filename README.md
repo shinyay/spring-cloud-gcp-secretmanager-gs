@@ -61,6 +61,11 @@ $ gcloud secrets versions enable 1 --secret app-secret
 sm://projects/<project-id>/secrets/<secret-id>/versions/<version-id>}
 ```
 
+#### 2.  Long form - specify project ID, secret ID, and use latest version
+```
+sm://projects/<project-id>/secrets/<secret-id>
+```
+
 
 ## Features
 
