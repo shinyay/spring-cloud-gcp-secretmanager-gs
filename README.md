@@ -65,14 +65,21 @@ sm://projects/<project-id>/secrets/<secret-id>/versions/<version-id>}
 ```
 sm://projects/<project-id>/secrets/<secret-id>
 ```
+
 #### 3. Short form - specify project ID, secret ID, and version
 ```
 sm://<project-id>/<secret-id>/<version-id>
 ```
+
 #### 4. Short form - default project; specify secret + version
 The project is inferred from the spring.cloud.gcp.secretmanager.project-id setting in your `bootstrap.yml` or `Google Application Default Credentials (ADC)`.
 ```
 sm://<secret-id>/<version>
+```
+
+#### 5. Shortest form - specify secret ID, use default project and latest version.
+```
+sm://<secret-id>
 ```
 
 ## Features
