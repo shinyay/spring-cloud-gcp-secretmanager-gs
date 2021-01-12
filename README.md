@@ -21,6 +21,11 @@ $ echo -n "Secret Manager Demo" | \
     --data-file=- --replication-policy=automatic
 ```
 
+##### List Secret
+```shell script
+$ gcloud secrets list
+```
+
 ## Features
 
 - feature:1
