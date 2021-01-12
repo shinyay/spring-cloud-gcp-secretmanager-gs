@@ -26,6 +26,11 @@ $ echo -n "Secret Manager Demo" | \
 $ gcloud secrets list
 ```
 
+#### Delete Secret
+```shell script
+$ gcloud secrets delete app-secret
+```
+
 ## Features
 
 - feature:1
