@@ -7,6 +7,14 @@ Secret Manager stores API keys, passwords, certificates, and other sensitive dat
 - com.google.cloud
   - `spring-cloud-gcp-starter-secretmanager`
 
+### Secret Manager Overview
+
+Secret Manager stores user's data with **Secret Name** and **Secret Version**
+
+- Secret
+  - Version 1 <- Store Data
+  - Version 2 <- Store Data
+
 ## Demo
 ### Configure Secret Manager
 #### Enable Secret Manager API
