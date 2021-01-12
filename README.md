@@ -14,6 +14,13 @@ Secret Manager stores API keys, passwords, certificates, and other sensitive dat
 $ gcloud services enable secretmanager.googleapis.com
 ```
 
+#### Create Secret
+```shell script
+$ echo -n "Secret Manager Demo" | \
+    gcloud secrets create app-secret \
+    --data-file=- --replication-policy=automatic
+```
+
 ## Features
 
 - feature:1
