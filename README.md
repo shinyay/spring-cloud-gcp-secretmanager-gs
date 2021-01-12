@@ -65,6 +65,10 @@ sm://projects/<project-id>/secrets/<secret-id>/versions/<version-id>}
 ```
 sm://projects/<project-id>/secrets/<secret-id>
 ```
+#### 3. Short form - specify project ID, secret ID, and version
+```
+sm://<project-id>/<secret-id>/<version-id>
+```
 
 
 ## Features
