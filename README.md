@@ -48,6 +48,12 @@ $ gcloud secrets versions list app-secret
 NAME  STATE    CREATED              DESTROYED
 1     enabled  2021-01-12T05:00:09  -
 ```
+
+##### Disable / Enable Version
+```shell script
+$ gcloud secrets versions disable 1 --secret app-secret
+$ gcloud secrets versions enable 1 --secret app-secret
+```
 ## Features
 
 - feature:1
