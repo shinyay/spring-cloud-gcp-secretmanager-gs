@@ -36,11 +36,18 @@ Created version [1] of the secret [app-secret].
 $ gcloud secrets list
 ```
 
-#### Delete Secret
+##### Delete Secret
 ```shell script
 $ gcloud secrets delete app-secret
 ```
 
+##### List Versions in Secret
+```shell script
+$ gcloud secrets versions list app-secret
+
+NAME  STATE    CREATED              DESTROYED
+1     enabled  2021-01-12T05:00:09  -
+```
 ## Features
 
 - feature:1
