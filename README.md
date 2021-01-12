@@ -54,6 +54,14 @@ NAME  STATE    CREATED              DESTROYED
 $ gcloud secrets versions disable 1 --secret app-secret
 $ gcloud secrets versions enable 1 --secret app-secret
 ```
+
+### Secret Manager Property Source
+#### 1. Long form - specify the project ID, secret ID, and version
+```
+sm://projects/<project-id>/secrets/<secret-id>/versions/<version-id>}
+```
+
+
 ## Features
 
 - feature:1
