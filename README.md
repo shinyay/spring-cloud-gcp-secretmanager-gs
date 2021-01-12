@@ -19,6 +19,8 @@ $ gcloud services enable secretmanager.googleapis.com
 $ echo -n "Secret Manager Demo" | \
     gcloud secrets create app-secret \
     --data-file=- --replication-policy=automatic
+
+Created version [1] of the secret [app-secret].
 ```
 
 ##### List Secret
