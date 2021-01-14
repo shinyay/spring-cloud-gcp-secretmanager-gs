@@ -34,4 +34,8 @@ class SecretManagerController(secretManagerTemplate: SecretManagerTemplate) {
         return "Message is [$myMessage] at $currentTime"
     }
 
+    @GetMapping("/template")
+    fun templateController(@RequestParam secret: String,
+                           @RequestParam(required = false) projectId: String) {
+    }
 }
