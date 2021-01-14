@@ -82,6 +82,17 @@ sm://<secret-id>/<version>
 sm://<secret-id>
 ```
 
+### Enable / Disable Secret Manager
+You can configure enable/disable at property:
+
+```yaml
+spring:
+  cloud:
+    gcp:
+      secretmanager:
+        enabled: [true / false]
+```
+
 ## Features
 
 - feature:1
