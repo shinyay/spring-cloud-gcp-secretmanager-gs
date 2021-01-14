@@ -96,6 +96,10 @@ spring:
 #### Spring Profiles
 You can switch configuration with Spring Profiles.
 
+Specify profile at the following property:
+
+- `spring.config.activate.on-profile`
+
 ```yaml
 spring:
   profiles:
