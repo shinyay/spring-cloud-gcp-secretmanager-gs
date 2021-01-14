@@ -93,6 +93,39 @@ spring:
         enabled: [true / false]
 ```
 
+#### Spring Profiles
+You can switch configuration with Spring Profiles.
+
+```yaml
+spring:
+  profiles:
+    include: prod
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  cloud:
+    gcp:
+      secretmanager:
+        enabled: true
+my-app:
+  my-env:
+    secretmanager: ${sm://app-secret}
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  cloud:
+    gcp:
+      secretmanager:
+        enabled: false
+my-app:
+  my-env:
+    secretmanager: "Offline"
+``` 
+
 ## Features
 
 - feature:1
