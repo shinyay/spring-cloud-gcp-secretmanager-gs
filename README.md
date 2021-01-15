@@ -163,6 +163,12 @@ secretManagerTemplate.getSecretString("sm://$secret")
 $ curl -X GET "localhost:8080/api/v1/template?secret=app-secret&projectId
 ```
 
+#### Create Secret by SecretManagerTemplate
+
+```shell script
+$ curl -X POST "localhost:8080/api/v1/template?secret=test-secret&value=sampledata&projectId"
+```
+
 ## Features
 
 - feature:1
