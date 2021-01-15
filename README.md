@@ -169,6 +169,12 @@ $ curl -X GET "localhost:8080/api/v1/template?secret=app-secret&projectId
 $ curl -X POST "localhost:8080/api/v1/template?secret=test-secret&value=sampledata&projectId"
 ```
 
+#### Delete Secret by SecretManagerTemplate
+
+```shell script
+$ curl -X DELETE "localhost:8080/api/v1/template?secret=test-secret&projectId"
+```
+
 ## Features
 
 - feature:1
