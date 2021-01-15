@@ -1,6 +1,7 @@
 package com.google.shinyay.controller
 
 import com.google.cloud.spring.secretmanager.SecretManagerTemplate
+import org.apache.commons.lang3.StringUtils
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -12,7 +13,7 @@ import java.time.format.DateTimeFormatter
 
 @RestController
 @RequestMapping("/api/v1")
-class SecretManagerController(secretManagerTemplate: SecretManagerTemplate) {
+class SecretManagerController(val secretManagerTemplate: SecretManagerTemplate) {
 
     @Value("\${sm://app-secret}")
     lateinit var appSecret: String
@@ -36,6 +37,13 @@ class SecretManagerController(secretManagerTemplate: SecretManagerTemplate) {
 
     @GetMapping("/template")
     fun templateController(@RequestParam secret: String,
-                           @RequestParam(required = false) projectId: String) {
+                           @RequestParam(required = false) projectId: String): String? {
+        return if (StringUtils.isEmpty(projectId)) {
+            val secretValue = secretManagerTemplate.getSecretString("sm://$secret")
+            "Secret ID: $secret | Value: $secretValue"
+        }else{
+            val secretValue = secretManagerTemplate.getSecretString("sm://$projectId/$secret")
+            "Secret ID: $secret | Value: $secretValue"
+        }
     }
 }
