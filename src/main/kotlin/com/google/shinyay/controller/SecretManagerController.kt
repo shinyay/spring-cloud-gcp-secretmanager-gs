@@ -3,10 +3,7 @@ package com.google.shinyay.controller
 import com.google.cloud.spring.secretmanager.SecretManagerTemplate
 import org.apache.commons.lang3.StringUtils
 import org.springframework.beans.factory.annotation.Value
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
@@ -36,7 +33,7 @@ class SecretManagerController(val secretManagerTemplate: SecretManagerTemplate) 
     }
 
     @GetMapping("/template")
-    fun templateController(@RequestParam secret: String,
+    fun readSecret(@RequestParam secret: String,
                            @RequestParam(required = false) projectId: String): String? {
         return if (StringUtils.isEmpty(projectId)) {
             val secretValue = secretManagerTemplate.getSecretString("sm://$secret")
@@ -44,6 +41,19 @@ class SecretManagerController(val secretManagerTemplate: SecretManagerTemplate) 
         }else{
             val secretValue = secretManagerTemplate.getSecretString("sm://$projectId/$secret")
             "Secret ID: $secret | Value: $secretValue"
+        }
+    }
+
+    @PostMapping("/template")
+    fun createSecret(@RequestParam secret: String,
+                           @RequestParam value: String,
+                           @RequestParam(required = false) projectId: String): String? {
+        return if (StringUtils.isEmpty(projectId)) {
+            secretManagerTemplate.createSecret(secret, value)
+            "Created [Secret ID: $secret | Value: $value]"
+        }else{
+            secretManagerTemplate.createSecret(secret, value.toByteArray(), projectId)
+            "Created [Secret ID: $secret | Value: $value]"
         }
     }
 }
