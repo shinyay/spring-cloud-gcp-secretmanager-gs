@@ -131,6 +131,15 @@ NAME  STATE    CREATED              DESTROYED
 $ gcloud secrets versions disable 1 --secret app-secret
 $ gcloud secrets versions enable 1 --secret app-secret
 ```
+
+### Access Secret Value
+#### Access from @Value
+
+- `@Value("${sm://app-secret}")`
+
+```shell script
+$ curl -X GET "localhost:8080/api/v1/hello
+```
 ## Features
 
 - feature:1
