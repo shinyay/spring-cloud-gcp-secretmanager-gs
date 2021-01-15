@@ -153,6 +153,16 @@ my-app:
 $ curl -X GET "localhost:8080/api/v1/message
 ```
 
+#### Access from SecretManagerTemplate
+
+```kotlin
+secretManagerTemplate.getSecretString("sm://$secret")
+```
+
+```shell script
+$ curl -X GET "localhost:8080/api/v1/template?secret=app-secret&projectId
+```
+
 ## Features
 
 - feature:1
