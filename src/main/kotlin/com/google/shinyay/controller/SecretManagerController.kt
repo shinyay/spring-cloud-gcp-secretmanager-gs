@@ -56,4 +56,16 @@ class SecretManagerController(val secretManagerTemplate: SecretManagerTemplate) 
             "Created [Secret ID: $secret | Value: $value]"
         }
     }
+
+    @DeleteMapping("/template")
+    fun deleteSecret(@RequestParam secret: String,
+                     @RequestParam(required = false) projectId: String): String? {
+        return if (StringUtils.isEmpty(projectId)) {
+            secretManagerTemplate.deleteSecret(secret)
+            "Deleted [Secret ID: $secret]"
+        }else{
+            secretManagerTemplate.deleteSecret(secret, projectId)
+            "Deleted [Secret ID: $secret]"
+        }
+    }
 }
