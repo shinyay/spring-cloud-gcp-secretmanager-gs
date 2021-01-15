@@ -134,12 +134,25 @@ $ gcloud secrets versions enable 1 --secret app-secret
 
 ### Access Secret Value
 #### Access from @Value
-
-- `@Value("${sm://app-secret}")`
-
 ```shell script
 $ curl -X GET "localhost:8080/api/v1/hello
 ```
+
+- `@Value("${sm://app-secret}")`
+
+#### Access from Application Property
+
+- `bootstrap.yml`
+```yaml
+my-app:
+  my-env:
+    secretmanager: ${sm://app-secret}
+```
+
+```shell script
+$ curl -X GET "localhost:8080/api/v1/message
+```
+
 ## Features
 
 - feature:1
